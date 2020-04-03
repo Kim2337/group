@@ -10,17 +10,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 부서번호(int)를 전달받아 사원번호와 사원 이름을 가져옴  -->
 	<select id="emps" resultType="map" parameterType="int">
-		select empno, ename from emp where deptno=#{deptno} order by ename
+		select empno, username from employee where deptno=#{deptno} order by username
 	</select>
 	
 	<!-- 사원번호(int)를 전달받아 해당 사원의 모든 정보를 가져옴-->
 	<select id="empOne" resultType="spring.model.EmpDto" parameterType="int">
-		select * from emp where empno=#{empno}
+		select * from employee where empno=#{empno}
 	</select>
 	
 	<!-- 사원테이블의 사원 이름을 가져옴 -->
 	<select id="empNames" resultType="String">
-		select ename from emp
+		select username from employee
 	</select>
 </mapper>
 

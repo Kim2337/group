@@ -46,14 +46,14 @@ function selectDept(){
 		,data:params
 		,dataType:"json"})
 		.done(function(args){
-			$("#emp option").each(function() {	
+			$("#emp  option").each(function() {	
 				$("#emp option:eq(0)").remove();
 			});
 
-			 $("#emp").append("<option value=''>::사원선택::</option>");
+			 $("#emp ").append("<option value=''>::사원선택::</option>");
 			 
 			 for(var idx=0; idx<args.length; idx++) {	
-				 $("#emp").append("<option value='"+args[idx].empno+"'>"+args[idx].ename+"</option>");	
+				 $("#emp").append("<option value='"+args[idx].empno+"'>"+args[idx].username+"</option>");	
 			 } 
 		})
 	    .fail(function(e) {
@@ -72,19 +72,16 @@ function selecEmp(){
 		,url:url	
 		,data:params
 		,dataType:"json"})
-		.done(function(args){
-		
-			var empno = "사원번호 : "+args.empno+"<br>";
-			var ename = "사원 이름 : "+args.ename+"<br>";
-			var job = "직급 : "+args.job+"<br>";
-			var mgr = "상사 번호 : "+args.mgr+"<br>";
-			var hiredate = "입사일 : "+args.hiredate+"<br>";
-			var sal = "급여 : "+args.sal+"<br>";
-			var comm = "커미션 : "+args.comm+"<br>";
-			var deptno = "부서 번호 : "+args.deptno+"<br>";
+		.done(function(args){	
+			var deptno = "부서번호 : "+args.deptno+"<br>";
+			var dname = "부서명 : "+args.dname+"<br>";
+			var username = "사원 이름 : "+args.username+"<br>";
+			var level = "직급 : "+args.level+"<br>";
+			var useremail = "이메일 : "+args.useremail+"<br>";
+			var userphonenum = "전화번호 : "+args.userphonenum+"<br>";
 			
 			$("#empInfo").text("");//기존 내용 제거
-			$("#empInfo").html(empno+ename+job+mgr+hiredate+sal+comm+deptno);
+			$("#empInfo").html(deptno+dname+username+level+useremail+userphonenum);
 		})
 	    .fail(function(e) {
 	    	alert(e.responseText);
