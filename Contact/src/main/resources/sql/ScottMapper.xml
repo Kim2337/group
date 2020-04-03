@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="scott">
+    <!-- 부서 선택하기 -->
+	<select id="depts" resultType="spring.model.DeptDto">
+		select deptno, dname from dept
+	</select>
+	
+	<!-- 부서번호(int)를 전달받아 사원번호와 사원 이름을 가져옴  -->
+	<select id="emps" resultType="map" parameterType="int">
+		select empno, ename from emp where deptno=#{deptno} order by ename
+	</select>
+	
+	<!-- 사원번호(int)를 전달받아 해당 사원의 모든 정보를 가져옴-->
+	<select id="empOne" resultType="spring.model.EmpDto" parameterType="int">
+		select * from emp where empno=#{empno}
+	</select>
+	
+	<!-- 사원테이블의 사원 이름을 가져옴 -->
+	<select id="empNames" resultType="String">
+		select ename from emp
+	</select>
+</mapper>
+
