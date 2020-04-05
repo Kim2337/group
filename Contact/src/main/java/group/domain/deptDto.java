@@ -9,6 +9,7 @@ public class deptDto {
 	public int getDeptno() {
 		return deptno;
 	}
+	
 	public void setDeptno(int deptno) {
 		this.deptno = deptno;
 	}
